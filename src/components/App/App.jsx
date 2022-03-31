@@ -2,14 +2,14 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Container, Loading } from './App.styled';
-const Layout = lazy(() => import('./Layout/Layout'));
+const Layout = lazy(() => import('../Layout/Layout'));
 const Homepage = lazy(() => import('pages/HomePage/HomePage'));
 const Moviespage = lazy(() => import('pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() =>
   import('pages/MoviesDetailsPage/MovieDetailsPage')
 );
-const Cast = lazy(() => import('./Cast/Cast'));
-const Reviews = lazy(() => import('./Reviews/Reviews'));
+const Cast = lazy(() => import('../Cast/Cast'));
+const Reviews = lazy(() => import('../Reviews/Reviews'));
 
 export function App() {
   return (
