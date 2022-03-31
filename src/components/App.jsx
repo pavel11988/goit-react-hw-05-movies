@@ -1,17 +1,31 @@
-export const App = () => {
+import React, { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import { Container } from './App.styled';
+const Layout = lazy(() => import('./Layout/Layout'));
+const Homepage = lazy(() => import('pages/HomePage/HomePage'));
+const Moviespage = lazy(() => import('pages/MoviesPage/MoviesPage'));
+const MovieDetailsPage = lazy(() =>
+  import('pages/MoviesDetailsPage/MovieDetailsPage')
+);
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+
+export function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Homepage />} />
+            <Route path="movies/" element={<Moviespage />} />
+            <Route path="movies/:id/" element={<MovieDetailsPage />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+          </Route>
+        </Routes>
+      </Suspense>
+    </Container>
   );
-};
+}
