@@ -29,26 +29,6 @@ export default function Cast() {
       });
   }, [id]);
 
-  // if (!error) {
-  //   return (
-  //     <CastsList>
-  //       {credits.map(actor => {
-  //         return (
-  //           <CastsItem key={actor.id}>
-  //             <ActorPhoto
-  //               src={actor.photo}
-  //               alt={`profilephoto-${actor.name}`}
-  //             ></ActorPhoto>
-  //             <ActorName>{actor.name}</ActorName>
-  //           </CastsItem>
-  //         );
-  //       })}
-  //     </CastsList>
-  //   );
-  // }
-  // if (error) {
-  //   return <InfoTitle>There are no casts to show.</InfoTitle>;
-  // }
   return (
     <>
       {!error ? (
