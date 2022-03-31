@@ -29,22 +29,22 @@ export default function Reviews() {
       });
   }, [id]);
 
-  if (!error) {
-    return (
-      <ReviewsList>
-        {reviews.map(review => {
-          return (
-            <ReviewsItem key={review.id}>
-              <ReviewName>{review.name}:</ReviewName>
-              <ReviewText>{review.text}</ReviewText>
-            </ReviewsItem>
-          );
-        })}
-      </ReviewsList>
-    );
-  }
-
-  if (error) {
-    return <InfoTitle>There are no reviews yet.</InfoTitle>;
-  }
+  return (
+    <>
+      {!error ? (
+        <ReviewsList>
+          {reviews.map(review => {
+            return (
+              <ReviewsItem key={review.id}>
+                <ReviewName>{review.name}:</ReviewName>
+                <ReviewText>{review.text}</ReviewText>
+              </ReviewsItem>
+            );
+          })}
+        </ReviewsList>
+      ) : (
+        <InfoTitle>There are no reviews yet.</InfoTitle>
+      )}
+    </>
+  );
 }

@@ -14,7 +14,7 @@ import {
   Arrow,
 } from './MovieDetailsPage.styled';
 
-function Moviepage() {
+function MovieDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [film, setFilm] = useState({});
@@ -66,4 +66,4 @@ function Moviepage() {
   );
 }
 
-export default Moviepage;
+export default MovieDetailsPage;
