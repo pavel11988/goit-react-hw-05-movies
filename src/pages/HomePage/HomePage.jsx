@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { getTrendingOfWeek } from 'services/movie-api';
 
 import { Title } from './HomePage.styled';
-
-import { MovieList } from 'components/MovieList/MovieList';
+import MovieList from 'components/MovieList/MovieList';
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);

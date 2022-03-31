@@ -11,9 +11,9 @@ import {
   SearchInput,
 } from './MoviesPage.styled';
 
-import { MovieList } from 'components/MovieList/MovieList';
+import MovieList from 'components/MovieList/MovieList';
 
-const Moviespage = () => {
+export default function Moviespage() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
@@ -76,6 +76,4 @@ const Moviespage = () => {
       {RESOLVED && <MovieList movies={movies} />}
     </>
   );
-};
-
-export default Moviespage;
+}
