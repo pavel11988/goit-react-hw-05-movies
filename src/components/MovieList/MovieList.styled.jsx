@@ -1,44 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const Title = styled.h2`
-  text-align: center;
-`;
-
-export const InfoTitle = styled.h3`
-  margin-top: 50px;
-  text-align: center;
-  font-style: italic;
-`;
-
-export const SearchForm = styled.form`
-  text-align: center;
-`;
-
-export const QueryInput = styled.input`
-  height: 35px;
-  width: 220px;
-  font-size: 16px;
-  padding-left: 10px;
-  padding-right: 5px;
-`;
-
-export const SearchInput = styled.input`
-  height: 35px;
-  width: 90px;
-  margin-left: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #4d4dff;
-  color: white;
-  &:hover {
-    background-color: #0000b3;
-  }
-  padding: 0;
-  margin-bottom: 30px;
-`;
-
-export const MovieList = styled.ul`
+export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -50,8 +13,8 @@ export const MovieList = styled.ul`
 `;
 
 export const LinkItem = styled(Link)`
-  width: 220px;
-  height: 300px;
+  text-decoration: none;
+  color: black;
 `;
 
 export const Item = styled.li`
@@ -60,7 +23,6 @@ export const Item = styled.li`
   height: 300px;
   text-align: center;
   margin-bottom: 15px;
-  text-decoration: none;
   color: black;
   border-radius: 20px;
   -webkit-box-shadow: 0px -1px 86px -19px rgba(3, 0, 189, 0.2) inset;
@@ -81,8 +43,6 @@ export const Item = styled.li`
 export const Poster = styled.img`
   border-radius: 20px;
   object-fit: cover;
-  width: 150px;
-  height: 225px;
 `;
 
 export const TitleMovie = styled.h4`

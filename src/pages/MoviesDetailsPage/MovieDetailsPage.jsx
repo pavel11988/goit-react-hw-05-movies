@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useParams, useNavigate } from 'react-router-dom';
+import { Outlet, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getInfoOfFilmById } from 'services/movie-api';
 import {
@@ -18,6 +18,7 @@ function MovieDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [film, setFilm] = useState({});
+  const { state } = useLocation();
 
   useEffect(() => {
     getInfoOfFilmById(id)
@@ -28,16 +29,18 @@ function MovieDetailsPage() {
   }, [id]);
 
   const goBack = () => {
-    navigate(-1);
+    navigate(state);
   };
 
   const { image, title, overview } = film;
 
   return (
     <>
-      <GoBackButton onClick={goBack}>
-        <Arrow>⇐</Arrow> Go back
-      </GoBackButton>
+      {state && (
+        <GoBackButton onClick={goBack}>
+          <Arrow>⇐</Arrow> Go back
+        </GoBackButton>
+      )}
 
       {film && (
         <>
@@ -50,11 +53,11 @@ function MovieDetailsPage() {
             </MovieInfo>
           </MovieContainer>
           <MovieLinks>
-            <OptionLink to={`cast`} name="credits" replace>
+            <OptionLink to={`cast`} name="credits" state={state}>
               Credits
             </OptionLink>
 
-            <OptionLink to={`reviews`} name="reviews" replace>
+            <OptionLink to={`reviews`} name="reviews" state={state}>
               Reviews
             </OptionLink>
           </MovieLinks>

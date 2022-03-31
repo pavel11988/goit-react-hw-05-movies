@@ -9,12 +9,9 @@ import {
   SearchForm,
   QueryInput,
   SearchInput,
-  MovieList,
-  LinkItem,
-  Item,
-  Poster,
-  TitleMovie,
 } from './MoviesPage.styled';
+
+import { MovieList } from 'components/MovieList/MovieList';
 
 const Moviespage = () => {
   const [movies, setMovies] = useState([]);
@@ -76,22 +73,7 @@ const Moviespage = () => {
       )}
       {PENDING && <InfoTitle>Loading...</InfoTitle>}
       {REJECTED && <InfoTitle>{error.message}</InfoTitle>}
-      {RESOLVED && (
-        <MovieList>
-          {movies.map(movie => (
-            <LinkItem key={movie.id} to={`/movies/${movie.id}`}>
-              <Item>
-                <Poster
-                  src={movie.image}
-                  alt={movie.original_title}
-                  width="150px"
-                />
-                <TitleMovie>{movie.original_title}</TitleMovie>
-              </Item>
-            </LinkItem>
-          ))}
-        </MovieList>
-      )}
+      {RESOLVED && <MovieList movies={movies} />}
     </>
   );
 };

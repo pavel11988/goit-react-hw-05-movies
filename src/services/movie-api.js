@@ -17,7 +17,6 @@ async function getFilmByQuery(searchQuery) {
       return {
         id: film.id,
         original_title: film.title,
-        overview: film.overview,
         image: image,
       };
     });
@@ -49,12 +48,11 @@ async function getTrendingOfWeek() {
     const response = await axios.get(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`
     );
-    const filmsArray = response.data.results.map(film => {
+    const filmsArray = response.data.results.map(movie => {
       return {
-        id: film.id,
-        original_title: film.original_title,
-        overview: film.overview,
-        image: `https://image.tmdb.org/t/p/w300/${film.poster_path}`,
+        id: movie.id,
+        original_title: movie.original_title,
+        image: `https://image.tmdb.org/t/p/w300/${movie.poster_path}`,
       };
     });
     return filmsArray;
