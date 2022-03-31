@@ -4,7 +4,7 @@ export const Container = styled.div`
   padding: 20px 50px 10px;
 `;
 
-export const Loading = styled.div`
+export const Loading = styled.h3`
   margin-top: 30px;
   text-align: center;
   font-size: 20px;
