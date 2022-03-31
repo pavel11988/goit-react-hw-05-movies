@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Container } from './App.styled';
+import { Container, Loading } from './App.styled';
 const Layout = lazy(() => import('./Layout/Layout'));
 const Homepage = lazy(() => import('pages/HomePage/HomePage'));
 const Moviespage = lazy(() => import('pages/MoviesPage/MoviesPage'));
@@ -14,7 +14,7 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 export function App() {
   return (
     <Container>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading>Loading...</Loading>}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />} />
