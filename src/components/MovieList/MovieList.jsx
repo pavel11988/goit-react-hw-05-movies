@@ -9,7 +9,12 @@ export default function MovieList({ movies }) {
       {movies.map(({ id, image, original_title }) => (
         <Item key={id}>
           <LinkItem to={`/movies/${id}`} state={location}>
-            <Poster src={image} alt={original_title} width="150px" />
+            <Poster
+              src={image}
+              alt={original_title}
+              width="150px"
+              height="215px"
+            />
             <TitleMovie>{original_title}</TitleMovie>
           </LinkItem>
         </Item>
